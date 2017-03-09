@@ -1,0 +1,51 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Map.DetalhesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Map"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton x:ConnectionId='2' x:Name="btSalvar" Icon="Save" Label="Salvar"                       />
+            <AppBarButton x:ConnectionId='3' x:Name="btRemover" Icon="Delete" Label="Remover"                        />
+            <AppBarButton x:ConnectionId='4' x:Name="btCancelar" Icon="Cancel" Label="Cancelar"                         />
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="171*"/>
+            <ColumnDefinition Width="469*"/>
+
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="12,0,0,0" Grid.ColumnSpan="2">
+            <TextBox x:ConnectionId='8' x:Name="textBoxID" TextWrapping="Wrap" Header="ID Reclamação:" HorizontalAlignment="Left" Width="104"                                                                          IsReadOnly="True" Height="60"/>
+            <TextBox x:ConnectionId='9' x:Name="textTitulo" TextWrapping="Wrap" Width="300" HorizontalAlignment="Left" Header="Título:"                                                                    IsReadOnly="True" />
+            <TextBox x:ConnectionId='10' x:Name="dataTXt" Header="Data"                                                              HorizontalAlignment="Left" Width="300" IsReadOnly="True" />
+
+            <TextBox x:ConnectionId='11' x:Name="textBairro" TextWrapping="Wrap" Header="Bairro:" Width="300" HorizontalAlignment="Left"                                                                    IsReadOnly="True" Height="60" />
+            <TextBox x:ConnectionId='12' x:Name="textCategoria" TextWrapping="Wrap" Header="Categoria:" Width="300" HorizontalAlignment="Left"                                                                       IsReadOnly="True" Height="60" />
+            <TextBox x:ConnectionId='13' x:Name="textBoxEndereco" TextWrapping="Wrap" Header="Endereço:" Width="300" HorizontalAlignment="Left" Height="60"                                                                      IsReadOnly="True" />
+            <TextBox x:ConnectionId='14' x:Name="textBoxDescricao" TextWrapping="Wrap" Header="Descrição:" Width="300" HorizontalAlignment="Left" Height="150"                                                                  />
+            <CheckBox x:ConnectionId='15' x:Name="checkBoxResolvido" Content="Marque se a sua reclamação foi resolvida" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"                   Margin="0,15,938,0"/>
+
+        </StackPanel>
+        <Maps:MapControl x:ConnectionId='5'  x:Name="MapDetalhes" HorizontalAlignment="Left" Height="336" Margin="0" VerticalAlignment="Top" Width="500" MapServiceToken="BTSWwJFD7uohSzUk5F0y~lzMcclIPWTiGO6hvCphQ7w~AjegWdfdh_3dEy2qspcNeSMjzpLdk1hrk4m6vLJPx9f4Kp8GBR7i_ZWoHP7H19yE" Grid.Column="1"/>
+        <TextBlock x:ConnectionId='6' x:Name="textBlockImg" Grid.Column="1" HorizontalAlignment="Left" Height="64" Margin="126,469,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" FontSize="24" TextAlignment="Center"/>
+        <Image x:ConnectionId='7' x:Name="image" Grid.Column="1" HorizontalAlignment="Left" Height="335" Margin="0,341,0,0" VerticalAlignment="Top" Width="500"/>
+    </Grid>
+</Page>
+

@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="Map.CadastroPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Map"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton x:Name="btSalvar" Icon="Accept" Label="Salvar" Click="btSalvar_Click"/>
+            <AppBarButton x:Name="btCancelar" Icon="Cancel" Label="Cancelar" Click="btCancelar_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="383*"/>
+            <ColumnDefinition Width="897*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="53"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="12,12,0,0" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Top" Height="41" Width="285" Text="Informe a Reclamação:" FontSize="24"/>
+        <StackPanel Margin="12,0,0,0" Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBox x:Name="textID" TextWrapping="Wrap" Header="ID Reclamação:" HorizontalAlignment="Left" Width="104" IsReadOnly="True"/>
+            <TextBox x:Name="textTitulo" TextWrapping="Wrap" Width="300" HorizontalAlignment="Left" Header="Título:" Text="{x:Bind ViewModel.ReclamacaoAtual.Titulo, Mode=TwoWay}" />
+            <TextBox x:Name="textEndereco" TextWrapping="Wrap" Header="Endereço:" Width="300" HorizontalAlignment="Left" Height="60" Text="{x:Bind ViewModel.ReclamacaoAtual.Endereco, Mode=TwoWay}" />
+            <TextBox x:Name="textDescricao" TextWrapping="Wrap" Header="Descrição:" Width="300" HorizontalAlignment="Left" Height="150" Text="{x:Bind ViewModel.ReclamacaoAtual.Desc, Mode=TwoWay}" />
+            <ListBox Margin="0,20,970,20" Name="listBoxCateg" Height="41" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding }" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Margin="0,20,970,20" Name="listBoxBairro" Height="41" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding }" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <CalendarDatePicker x:Name="DataReclamacao" HorizontalAlignment="Left" Height="60" Margin="3,0,0,0" Width="300" PlaceholderText="Selecione a data:"  DateFormat="{}{day.integer}/{month.integer}/{year.full}"/>
+            <Button x:Name="PickAFileButton" Content="Selecionar foto" Margin="0" Width="180"/>
+            <TextBlock x:Name="OutputTextBlock" TextWrapping="Wrap" Margin="0,0,968,0" Width="300"/>
+            <Image x:Name="image1" Height="100"/>
+           
+
+
+        </StackPanel>
+        <Image x:Name="image" Grid.Column="1" HorizontalAlignment="Left" Height="338" Margin="10,0,0,0" VerticalAlignment="Top" Width="568" Grid.Row="1"/>
+        
+
+
+    </Grid>
+</Page>

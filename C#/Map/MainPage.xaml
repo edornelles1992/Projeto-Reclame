@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="Map.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Map"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="White">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="251*"/>
+            <RowDefinition Height="394*"/>
+            <RowDefinition Height="75*"/>
+
+
+        </Grid.RowDefinitions>
+        <ListView x:Name="ReclamacaoListView" ItemsSource="{Binding Reclamacao}" ItemTemplate="{StaticResource ReclamacaoListViewDataTemplate}" SelectionMode="None" IsItemClickEnabled="True" Margin="0" ItemClick="ReclamacaoListView_ItemClick" Width="640" HorizontalAlignment="Left" Foreground="White"/>
+
+        <Maps:MapControl x:Name="Map" MapTapped="MapControl_MapTapped" MapServiceToken="BTSWwJFD7uohSzUk5F0y~lzMcclIPWTiGO6hvCphQ7w~AjegWdfdh_3dEy2qspcNeSMjzpLdk1hrk4m6vLJPx9f4Kp8GBR7i_ZWoHP7H19yE" Grid.Row="1" Margin="0,0,0,74" Grid.RowSpan="2">
+            <Maps:MapControl.Background>
+                <ImageBrush Stretch="Fill"/>
+            </Maps:MapControl.Background>
+        </Maps:MapControl>
+
+        <AppBarButton x:Name="appBarButton1" HorizontalAlignment="Stretch" Icon="Accept" Click="appBarButton1_Click" Label="Adicionar Reclamação"  Margin="0,0,0,-4" Grid.Row="1" VerticalAlignment="Bottom" Width="Auto" Height="80" RenderTransformOrigin="0.081,0.433" Grid.RowSpan="2">
+            <Border BorderBrush="Black" BorderThickness="1" Height="100" Width="100"/>
+
+        </AppBarButton>
+        <TextBlock x:Name="LocalClicado" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="" Width="270" Foreground="#FF01760C" FontSize="18" Height="80" VerticalAlignment="Bottom" />
+        <TextBlock x:Name="tbInfo" HorizontalAlignment="Left" Height="31" Margin="645,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="635" FontSize="18" RenderTransformOrigin="0.5,0.5">
+        	<Run Text="     "/>
+        	<Run Text="                                  "/>
+        	<Run Text="Informações gerais:"/>
+        </TextBlock>
+        <TextBlock x:Name="txtTotalR" HorizontalAlignment="Left" Height="54" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="349" Grid.Row="1" Foreground="#FFD82121" FontSize="22"/>
+        <ListBox Margin="957,31,11,0" Name="listBoxCateg" SelectionMode="Single" SelectionChanged="SelecionaCateg" Height="36" VerticalAlignment="Top" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding }" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Margin="640,31,328,0" Name="listBoxBairro" SelectionChanged="SelecionaBairro" SelectionMode="Single" Height="36" VerticalAlignment="Top">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding }" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock x:Name="infBairro" HorizontalAlignment="Left" Height="136" Margin="645,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="305"/>
+        <TextBlock x:Name="infCateg" HorizontalAlignment="Left" Height="136" Margin="957,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="323"/>
+        <TextBlock x:Name="textR" HorizontalAlignment="Center" Height="23" Margin="645,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="635" TextAlignment="Center"/>
+
+
+
+
+    </Grid>
+</Page>
